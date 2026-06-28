@@ -7,29 +7,54 @@
     body{
       margin:0;
       font-family:Arial;
-      background:#0a0a0a;
-      color:white;
+      background:url("https://i.imgur.com/your-worldcup-bg.jpg");
+      background-size:cover;
+      color:#00ffcc;
     }
 
-    /* HEADER */
+    /* HEADER GIF LOGO */
     .header{
-      background:linear-gradient(90deg,black,red,gold);
-      padding:20px;
       text-align:center;
-      font-size:26px;
+      padding:10px;
+      background:rgba(0,0,0,0.6);
+    }
+
+    .header img{
+      height:80px;
+    }
+
+    /* MARQUEE */
+    .marquee{
+      background:gold;
+      color:black;
+      padding:5px;
       font-weight:bold;
     }
 
-    /* BANNER */
-    .banner{
-      display:flex;
+    /* SLIDER */
+    .slider{
+      width:100%;
+      height:300px;
       overflow:hidden;
-      height:200px;
+      position:relative;
     }
 
-    .banner img{
+    .slides{
+      display:flex;
+      width:200%;
+      animation:slide 8s infinite;
+    }
+
+    .slides img{
       width:100%;
+      height:300px;
       object-fit:cover;
+    }
+
+    @keyframes slide{
+      0%{transform:translateX(0)}
+      50%{transform:translateX(-50%)}
+      100%{transform:translateX(0)}
     }
 
     /* LAYOUT */
@@ -37,65 +62,33 @@
       display:flex;
     }
 
-    .sidebar{
+    .side{
       width:20%;
-      background:#111;
+      background:rgba(0,0,0,0.6);
       padding:10px;
     }
 
-    .content{
+    .main{
       width:60%;
       padding:10px;
     }
 
-    /* BOX */
     .box{
-      background:#1a1a1a;
-      padding:10px;
+      background:rgba(0,0,0,0.6);
       margin-bottom:10px;
-      border-radius:10px;
+      padding:10px;
+      border:1px solid #00ffcc;
     }
 
-    /* BUTTON */
-    .btn{
+    a{
       display:block;
+      margin:5px 0;
+      padding:10px;
       background:gold;
       color:black;
-      text-align:center;
-      padding:10px;
-      margin-top:10px;
-      border-radius:8px;
       text-decoration:none;
       font-weight:bold;
-    }
-
-    .btn2{
-      background:red;
-      color:white;
-    }
-
-    /* TABLE */
-    table{
-      width:100%;
-      border-collapse:collapse;
-      font-size:12px;
-    }
-
-    td,th{
-      border:1px solid #333;
-      padding:5px;
       text-align:center;
-    }
-
-    th{
-      background:#222;
-    }
-
-    /* MARQUEE */
-    .marquee{
-      background:red;
-      padding:5px;
-      color:white;
     }
 
   </style>
@@ -103,72 +96,49 @@
 
 <body>
 
+<!-- HEADER GIF -->
 <div class="header">
-  🔥 AIRBET88 BOT SPORT
+  <img src="http://plcl.me/images/rWZ3d.gif">
 </div>
 
+<!-- MARQUEE -->
 <div class="marquee">
-  SELAMAT DATANG DI AIRBET88 - AI PREDICTION ACTIVE
+  🔥 SELAMAT DATANG DI AIRBET88 - WORLD CUP AI PREDICTION 🔥
 </div>
 
-<!-- BANNER -->
-<div class="banner">
-  <img src="https://plcl.me/images/X2Zgf.jpg">
+<!-- SLIDER -->
+<div class="slider">
+  <div class="slides">
+    <img src="http://plcl.me/images/X2Zgf.jpg">
+    <img src="http://plcl.me/images/2HuRq.jpg">
+  </div>
 </div>
 
+<!-- CONTENT -->
 <div class="container">
 
-  <!-- LEFT SIDEBAR -->
-  <div class="sidebar">
+  <!-- LEFT -->
+  <div class="side">
     <div class="box">
       <h3>LOGIN</h3>
-      <a class="btn" href="https://access.bit2air.com/airbet88sensasional">LOGIN</a>
-      <a class="btn btn2" href="https://access.bit2air.com/airbet88sensasional">REGISTER</a>
-    </div>
-
-    <div class="box">
-      <h3>INFO</h3>
-      Bonus 100% New Member<br>
-      AI Prediction Active
+      <a href="https://access.bit2air.com/airbet88sensasional">LOGIN</a>
+      <a href="https://access.bit2air.com/airbet88sensasional">REGISTER</a>
     </div>
   </div>
 
-  <!-- CONTENT -->
-  <div class="content">
+  <!-- MAIN -->
+  <div class="main">
     <div class="box">
       <h3>JADWAL PERTANDINGAN</h3>
-
-      <table>
-        <tr>
-          <th>Team A</th>
-          <th>VS</th>
-          <th>Team B</th>
-          <th>Score AI</th>
-          <th>Status</th>
-        </tr>
-
-        <tr>
-          <td>Afrika Selatan</td>
-          <td>VS</td>
-          <td>Kanada</td>
-          <td>2-1</td>
-          <td>UPCOMING</td>
-        </tr>
-
-      </table>
+      <p>Afrika Selatan vs Kanada - 2:1</p>
     </div>
   </div>
 
-  <!-- RIGHT SIDEBAR -->
-  <div class="sidebar">
+  <!-- RIGHT -->
+  <div class="side">
     <div class="box">
       <h3>LIVE CHAT</h3>
-      <a class="btn" href="https://access.bit2air.com/airbet88sensasional">CHAT</a>
-    </div>
-
-    <div class="box">
-      <h3>THEME</h3>
-      RED GOLD ACTIVE
+      <a href="https://access.bit2air.com/airbet88sensasional">CHAT</a>
     </div>
   </div>
 
