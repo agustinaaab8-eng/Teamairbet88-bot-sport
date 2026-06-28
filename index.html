@@ -7,12 +7,12 @@
     body{
       margin:0;
       font-family:Arial;
-      background:url("https://i.imgur.com/your-worldcup-bg.jpg");
+      background:url("https://i.imgur.com/your-worldcup-bg.jpg") no-repeat center center fixed;
       background-size:cover;
       color:#00ffcc;
     }
 
-    /* HEADER GIF LOGO */
+    /* HEADER */
     .header{
       text-align:center;
       padding:10px;
@@ -23,26 +23,39 @@
       height:80px;
     }
 
-    /* MARQUEE */
+    /* RUNNING TEXT */
     .marquee{
       background:gold;
       color:black;
       padding:5px;
       font-weight:bold;
+      white-space:nowrap;
+      overflow:hidden;
+    }
+
+    .marquee span{
+      display:inline-block;
+      padding-left:100%;
+      animation: run 12s linear infinite;
+    }
+
+    @keyframes run{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-100%)}
     }
 
     /* SLIDER */
     .slider{
       width:100%;
       height:300px;
-      overflow:hidden;
       position:relative;
+      overflow:hidden;
     }
 
     .slides{
       display:flex;
-      width:200%;
-      animation:slide 8s infinite;
+      width:100%;
+      transition:0.5s ease;
     }
 
     .slides img{
@@ -51,11 +64,20 @@
       object-fit:cover;
     }
 
-    @keyframes slide{
-      0%{transform:translateX(0)}
-      50%{transform:translateX(-50%)}
-      100%{transform:translateX(0)}
+    .btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(0,0,0,0.6);
+      color:#fff;
+      border:none;
+      font-size:30px;
+      padding:10px;
+      cursor:pointer;
     }
+
+    .prev{left:10px;}
+    .next{right:10px;}
 
     /* LAYOUT */
     .container{
@@ -78,6 +100,14 @@
       margin-bottom:10px;
       padding:10px;
       border:1px solid #00ffcc;
+      text-align:center;
+    }
+
+    .box img{
+      width:100%;
+      height:auto;
+      display:block;
+      margin-bottom:10px;
     }
 
     a{
@@ -90,39 +120,40 @@
       font-weight:bold;
       text-align:center;
     }
-
   </style>
 </head>
 
 <body>
 
-<!-- HEADER GIF -->
+<!-- HEADER -->
 <div class="header">
   <img src="http://plcl.me/images/rWZ3d.gif">
 </div>
 
-<!-- MARQUEE -->
+<!-- RUNNING TEXT -->
 <div class="marquee">
-  🔥 SELAMAT DATANG DI AIRBET88 - WORLD CUP AI PREDICTION 🔥
+  <span>🔥 SELAMAT DATANG DI AIRBET88 - WORLD CUP AI PREDICTION 🔥</span>
 </div>
 
 <!-- SLIDER -->
 <div class="slider">
-  <div class="slides">
+  <div class="slides" id="slides">
     <img src="http://plcl.me/images/X2Zgf.jpg">
     <img src="http://plcl.me/images/2HuRq.jpg">
   </div>
+
+  <button class="btn prev" onclick="moveSlide(-1)">❮</button>
+  <button class="btn next" onclick="moveSlide(1)">❯</button>
 </div>
 
 <!-- CONTENT -->
 <div class="container">
 
-  <!-- LEFT -->
+  <!-- LEFT SIDEBAR -->
   <div class="side">
     <div class="box">
-      <h3>LOGIN</h3>
-      <a href="https://access.bit2air.com/airbet88sensasional">LOGIN</a>
-      <a href="https://access.bit2air.com/airbet88sensasional">REGISTER</a>
+      <img src="http://plcl.me/images/fb3V3.png">
+      <a href="https://access.bit2air.com/airbet88sensasional">SIDEBAR KIRI</a>
     </div>
   </div>
 
@@ -134,15 +165,31 @@
     </div>
   </div>
 
-  <!-- RIGHT -->
+  <!-- RIGHT SIDEBAR -->
   <div class="side">
     <div class="box">
-      <h3>LIVE CHAT</h3>
-      <a href="https://access.bit2air.com/airbet88sensasional">CHAT</a>
+      <img src="http://plcl.me/images/fb3V3.png">
+      <a href="https://access.bit2air.com/livechatairbet88">LIVE CHAT</a>
     </div>
   </div>
 
 </div>
+
+<!-- SLIDER SCRIPT -->
+<script>
+let index = 0;
+const slides = document.getElementById("slides");
+const total = slides.children.length;
+
+function moveSlide(dir){
+  index += dir;
+
+  if(index < 0) index = total - 1;
+  if(index >= total) index = 0;
+
+  slides.style.transform = "translateX(" + (-index * 100) + "%)";
+}
+</script>
 
 </body>
 </html>
