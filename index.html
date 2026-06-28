@@ -14,14 +14,14 @@
     body{
       background:url("https://i.imgur.com/your-worldcup-bg.jpg") center/cover no-repeat fixed;
       min-height:100vh;
-      color:#00ffcc;
+      color:#00ffd5;
     }
 
     body::before{
       content:"";
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.6);
+      background:rgba(0,0,0,0.65);
       z-index:-1;
     }
 
@@ -29,7 +29,7 @@
     .header{
       text-align:center;
       padding:10px;
-      background:rgba(0,0,0,0.6);
+      background:rgba(0,0,0,0.7);
     }
 
     .header img{
@@ -39,8 +39,8 @@
 
     /* MARQUEE */
     .marquee{
-      background:gold;
-      color:black;
+      background:#00ffd5;
+      color:#000;
       font-weight:bold;
       overflow:hidden;
       white-space:nowrap;
@@ -57,14 +57,13 @@
       100%{transform:translateX(-100%)}
     }
 
-    /* ===================== */
-    /* SLIDER FIX FINAL */
-    /* ===================== */
+    /* SLIDER */
     .slider-wrapper{
       position:relative;
       width:100%;
       overflow:hidden;
       background:#000;
+      border-bottom:2px solid #00ffd5;
     }
 
     .slider-track{
@@ -82,9 +81,9 @@
       position:absolute;
       top:50%;
       transform:translateY(-50%);
-      background:rgba(0,0,0,0.6);
-      color:#fff;
-      border:none;
+      background:rgba(0,255,213,0.3);
+      color:#00ffd5;
+      border:1px solid #00ffd5;
       font-size:30px;
       padding:10px;
       cursor:pointer;
@@ -106,7 +105,7 @@
       width:60px;
       height:40px;
       object-fit:cover;
-      border:1px solid #fff;
+      border:1px solid #00ffd5;
     }
 
     /* LAYOUT */
@@ -120,16 +119,18 @@
     .side{
       background:rgba(0,0,0,0.5);
       padding:10px;
+      border:1px solid rgba(0,255,213,0.2);
     }
 
     .main{
       background:rgba(0,0,0,0.4);
       padding:10px;
+      border:1px solid rgba(0,255,213,0.2);
     }
 
     .item{
       margin-bottom:10px;
-      border:1px solid #00ffcc;
+      border:1px solid #00ffd5;
       overflow:hidden;
       cursor:pointer;
     }
@@ -144,8 +145,8 @@
     .item a{
       display:block;
       padding:10px;
-      background:gold;
-      color:black;
+      background:#00ffd5;
+      color:#000;
       text-align:center;
       font-weight:bold;
       text-decoration:none;
@@ -154,9 +155,23 @@
     .box{
       background:rgba(0,0,0,0.7);
       padding:15px;
-      border:1px solid #00ffcc;
+      border:1px solid #00ffd5;
       margin-bottom:10px;
       text-align:center;
+    }
+
+    /* BOT AI */
+    .bot{
+      margin-top:10px;
+      padding:10px;
+      border:1px solid #00ffd5;
+      background:rgba(0,255,213,0.05);
+      color:#00ffd5;
+    }
+
+    .bot h2{
+      margin-bottom:10px;
+      color:#00ffd5;
     }
 
   </style>
@@ -164,19 +179,16 @@
 
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <img src="http://plcl.me/images/rWZ3d.gif">
 </div>
 
-<!-- MARQUEE -->
 <div class="marquee">
-  <span>🔥 SELAMAT DATANG DI AIRBET88 - WORLD CUP AI PREDICTION 🔥</span>
+  <span>🔥 AIRBET88 WORLD CUP AI PREDICTION SYSTEM ACTIVE 🔥</span>
 </div>
 
-<!-- SLIDER FIX -->
+<!-- SLIDER -->
 <div class="slider-wrapper">
-
   <button class="nav prev" onclick="slide(-1)">❮</button>
 
   <div class="slider-track" id="track">
@@ -185,7 +197,6 @@
   </div>
 
   <button class="nav next" onclick="slide(1)">❯</button>
-
 </div>
 
 <!-- FLAGS -->
@@ -197,30 +208,13 @@
 <!-- LAYOUT -->
 <div class="container">
 
-  <!-- LEFT -->
   <div class="side">
-    <div class="item" onclick="location.href='https://access.bit2air.com/telegramofficialairbet88'">
-      <img src="http://plcl.me/images/fb3V3.png">
-      <a>TELEGRAM</a>
-    </div>
-
-    <div class="item" onclick="location.href='https://access.bit2air.com/airbet88sensasional'">
-      <img src="http://plcl.me/images/fb3V3.png">
-      <a>LOGIN</a>
-    </div>
-
-    <div class="item" onclick="location.href='https://access.bit2air.com/airbet88sensasional'">
-      <img src="http://plcl.me/images/fb3V3.png">
-      <a>REGISTER</a>
-    </div>
-
-    <div class="item" onclick="location.href='https://access.bit2air.com/airbet88sensasional'">
-      <img src="http://plcl.me/images/fb3V3.png">
-      <a>PROMO</a>
-    </div>
+    <div class="item"><a href="#">TELEGRAM</a></div>
+    <div class="item"><a href="#">LOGIN</a></div>
+    <div class="item"><a href="#">REGISTER</a></div>
+    <div class="item"><a href="#">PROMO</a></div>
   </div>
 
-  <!-- MAIN -->
   <div class="main">
 
     <div class="box">
@@ -230,40 +224,26 @@
 
     <div class="box">
       <h2>ANALISA AI</h2>
-      <p>
-        AI membaca dominasi Afrika Selatan lebih stabil di midfield.
-        Kanada lebih kuat counter attack tapi finishing rendah.
-      </p>
+      <p>AI membaca dominasi midfield Afrika Selatan lebih stabil, Kanada kuat counter attack tapi finishing lemah.</p>
+    </div>
+
+    <!-- BOT AI LIVE -->
+    <div class="bot">
+      <h2>🤖 BOT AI GACOR</h2>
+      <div id="botResult">Loading AI analysis...</div>
     </div>
 
   </div>
 
-  <!-- RIGHT -->
   <div class="side">
-    <div class="item" onclick="location.href='https://access.bit2air.com/livechatairbet88'">
-      <img src="http://plcl.me/images/fb3V3.png">
-      <a>LIVE CHAT</a>
-    </div>
-
-    <div class="item" onclick="location.href='https://access.bit2air.com/airbet88sensasional'">
-      <img src="http://plcl.me/images/fb3V3.png">
-      <a>DATA MATCH</a>
-    </div>
-
-    <div class="item" onclick="location.href='https://access.bit2air.com/airbet88sensasional'">
-      <img src="http://plcl.me/images/fb3V3.png">
-      <a>STATISTIK</a>
-    </div>
-
-    <div class="item" onclick="location.href='https://access.bit2air.com/airbet88sensasional'">
-      <img src="http://plcl.me/images/fb3V3.png">
-      <a>ODDS AI</a>
-    </div>
+    <div class="item"><a href="#">LIVE CHAT</a></div>
+    <div class="item"><a href="#">DATA MATCH</a></div>
+    <div class="item"><a href="#">STATISTIK</a></div>
+    <div class="item"><a href="#">ODDS AI</a></div>
   </div>
 
 </div>
 
-<!-- JS SLIDER -->
 <script>
 let index = 0;
 
@@ -278,6 +258,22 @@ function slide(dir){
 
   track.style.transform = `translateX(-${index * 100}%)`;
 }
+
+/* BOT AI GACOR SIMPLE */
+function botAI(){
+  const data = [
+    "🔥 Home team lebih dominan midfield (62%)",
+    "⚡ Counter attack away team cukup berbahaya",
+    "📊 Possession control kuat di home team",
+    "🤖 Prediksi akhir: Home Win"
+  ];
+
+  document.getElementById("botResult").innerHTML =
+    data[Math.floor(Math.random() * data.length)];
+}
+
+botAI();
+setInterval(botAI, 5000);
 </script>
 
 </body>
