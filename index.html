@@ -13,8 +13,8 @@
 
     body{
       background:#000;
-      min-height:100vh;
       color:#00ffd5;
+      min-height:100vh;
     }
 
     body::before{
@@ -41,8 +41,8 @@
       background:#00ffd5;
       color:#000;
       font-weight:bold;
-      overflow:hidden;
       white-space:nowrap;
+      overflow:hidden;
     }
 
     .marquee span{
@@ -81,10 +81,9 @@
       background:#00ffd5;
       color:#000;
       border:none;
-      font-size:25px;
+      font-size:24px;
       padding:8px;
       cursor:pointer;
-      z-index:10;
     }
 
     .prev{left:10px;}
@@ -104,33 +103,31 @@
       border:1px solid #00ffd5;
     }
 
-    /* LAYOUT FIX */
+    /* LAYOUT FIX TOTAL */
     .container{
       display:grid;
-      grid-template-columns: 22% 56% 22%;
+      grid-template-columns: 22% minmax(0,1fr) 22%;
       gap:10px;
       padding:10px;
-      align-items:start;
+      width:100%;
     }
 
     .side{
       background:rgba(0,0,0,0.5);
       padding:10px;
-      border:1px solid rgba(0,255,213,0.3);
-      min-height:100%;
+      min-width:0;
     }
 
     .main{
       background:rgba(0,0,0,0.4);
       padding:10px;
-      border:1px solid rgba(0,255,213,0.3);
     }
 
     .item{
       margin-bottom:10px;
       border:1px solid #00ffd5;
-      cursor:pointer;
       text-align:center;
+      cursor:pointer;
     }
 
     .item a{
@@ -143,27 +140,31 @@
     }
 
     .box{
-      background:rgba(0,0,0,0.7);
-      padding:15px;
       border:1px solid #00ffd5;
+      padding:10px;
       margin-bottom:10px;
       text-align:center;
     }
 
-    /* BOT */
+    /* BOT MATCH */
     .match-box{
       border:1px solid #00ffd5;
       padding:10px;
       margin:10px 0;
     }
 
-    button{
+    .btn-ai{
       background:#00ffd5;
       border:none;
       padding:5px 10px;
       cursor:pointer;
       color:#000;
       font-weight:bold;
+      margin-top:5px;
+    }
+
+    .result{
+      margin-top:5px;
     }
 
   </style>
@@ -213,7 +214,7 @@
 
     <div class="box">
       <h2>JADWAL</h2>
-      <p>Auto dari Excel</p>
+      <p>DATA LIVE MATCH</p>
     </div>
 
     <div class="box">
@@ -237,13 +238,11 @@
 
 /* SLIDER */
 let index = 0;
-
 function slide(dir){
   const track = document.getElementById("track");
   const total = track.children.length;
 
   index += dir;
-
   if(index < 0) index = total - 1;
   if(index >= total) index = 0;
 
@@ -251,55 +250,73 @@ function slide(dir){
 }
 
 
-/* LOAD EXCEL (GOOGLE SHEETS CSV) */
+/* LOAD MATCH (EXCEL / SHEETS CSV) */
 async function loadMatches(){
 
   const url = "https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/export?format=csv";
 
-  const res = await fetch(url);
-  const text = await res.text();
+  try{
+    const res = await fetch(url);
+    const text = await res.text();
 
-  const rows = text.split("\n").slice(1);
+    const rows = text.split("\n").slice(1);
 
-  let html = "";
+    let html = "";
 
-  rows.forEach((r,i)=>{
-    const [home,away,oh,oa] = r.split(",");
+    rows.forEach((r,i)=>{
+      const [home,away,oh,oa] = r.split(",");
+      if(!home || !away) return;
 
-    if(!home || !away) return;
+      html += `
+        <div class="match-box">
+          ⚽ <b>${home} vs ${away}</b><br>
 
-    html += `
-      <div class="match-box">
-        ⚽ <b>${home} vs ${away}</b><br><br>
+          <button class="btn-ai"
+            data-home="${home}"
+            data-away="${away}"
+            data-oh="${oh}"
+            data-oa="${oa}">
+            🤖 ANALISA BOT
+          </button>
 
-        <button onclick="predict(${oh},${oa},'${home}','${away}')">
-          🤖 ANALISA BOT
-        </button>
+          <div class="result"></div>
+        </div>
+      `;
+    });
 
-        <div id="res${i}"></div>
-      </div>
-    `;
-  });
+    document.getElementById("matchList").innerHTML = html;
 
-  document.getElementById("matchList").innerHTML = html;
-}
-
-
-/* BOT PREDICTION */
-function predict(oh,oa,home,away){
-
-  let result = "";
-
-  if(parseFloat(oh) < parseFloat(oa)){
-    result = `🔥 ${home} lebih unggul`;
-  } else if(parseFloat(oa) < parseFloat(oh)){
-    result = `🔥 ${away} lebih unggul`;
-  } else {
-    result = `⚖️ Seimbang`;
+  } catch(e){
+    document.getElementById("matchList").innerHTML = "Gagal load data";
   }
-
-  alert(result);
 }
+
+
+/* BUTTON ENGINE */
+document.addEventListener("click", function(e){
+
+  if(e.target.classList.contains("btn-ai")){
+
+    const btn = e.target;
+
+    const home = btn.dataset.home;
+    const away = btn.dataset.away;
+    const oh = parseFloat(btn.dataset.oh);
+    const oa = parseFloat(btn.dataset.oa);
+
+    let result = "";
+
+    if(oh < oa){
+      result = `🔥 ${home} lebih unggul`;
+    } else if(oa < oh){
+      result = `🔥 ${away} lebih unggul`;
+    } else {
+      result = `⚖️ Seimbang`;
+    }
+
+    btn.nextElementSibling.innerHTML = result;
+  }
+});
 
 loadMatches();
 
