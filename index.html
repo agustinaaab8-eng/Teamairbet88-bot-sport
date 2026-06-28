@@ -13,17 +13,15 @@
 
     body{
       background:url("https://i.imgur.com/your-worldcup-bg.jpg") center/cover no-repeat fixed;
-      color:#00ffcc;
       min-height:100vh;
+      color:#00ffcc;
     }
 
-    /* DARK OVERLAY + PETIR STYLE READY */
     body::before{
       content:"";
       position:fixed;
-      top:0;left:0;
-      width:100%;height:100%;
-      background:rgba(0,0,0,0.55);
+      inset:0;
+      background:rgba(0,0,0,0.6);
       z-index:-1;
     }
 
@@ -39,7 +37,7 @@
       object-fit:contain;
     }
 
-    /* RUNNING TEXT */
+    /* RUN TEXT */
     .marquee{
       background:gold;
       color:black;
@@ -59,42 +57,19 @@
       100%{transform:translateX(-100%)}
     }
 
-    /* SLIDER FULL RESPONSIVE */
+    /* BANNER FIX NO CROP */
     .slider{
-      position:relative;
       width:100%;
-      height:420px;
-      overflow:hidden;
+      background:#000;
     }
 
-    .slides{
-      display:flex;
-      transition:0.5s ease;
-      height:100%;
-    }
-
-    .slides img{
+    .slider img{
       width:100%;
-      height:420px;
-      object-fit:cover;
+      height:auto; /* IMPORTANT FIX */
+      display:block;
     }
 
-    .btn{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      background:rgba(0,0,0,0.6);
-      color:white;
-      border:none;
-      font-size:28px;
-      padding:10px 15px;
-      cursor:pointer;
-    }
-
-    .prev{left:10px;}
-    .next{right:10px;}
-
-    /* LAYOUT GRID FIX */
+    /* LAYOUT */
     .container{
       display:grid;
       grid-template-columns: 22% 56% 22%;
@@ -112,39 +87,41 @@
       padding:10px;
     }
 
-    /* SIDEBAR ITEMS */
+    /* CLICKABLE ITEM FULL */
     .item{
       margin-bottom:10px;
-      background:#111;
       border:1px solid #00ffcc;
-      text-align:center;
-      padding:8px;
+      overflow:hidden;
+      cursor:pointer;
     }
 
     .item img{
       width:100%;
       height:120px;
       object-fit:cover;
+      display:block;
     }
 
     .item a{
       display:block;
-      padding:8px;
+      padding:10px;
       background:gold;
       color:black;
-      text-decoration:none;
+      text-align:center;
       font-weight:bold;
+      text-decoration:none;
     }
 
-    /* ANALISA BOX */
+    /* MATCH PANEL */
     .box{
       background:rgba(0,0,0,0.7);
       padding:15px;
       border:1px solid #00ffcc;
       margin-bottom:10px;
+      text-align:center;
     }
 
-    /* FLAGS AREA */
+    /* FLAGS DEKAT MATCH */
     .flags{
       display:flex;
       justify-content:center;
@@ -157,21 +134,6 @@
       height:40px;
       object-fit:cover;
       border:1px solid #fff;
-    }
-
-    /* RESPONSIVE */
-    @media(max-width:900px){
-      .container{
-        grid-template-columns:1fr;
-      }
-
-      .slider{
-        height:250px;
-      }
-
-      .slides img{
-        height:250px;
-      }
     }
 
   </style>
@@ -189,47 +151,45 @@
   <span>🔥 SELAMAT DATANG DI AIRBET88 - WORLD CUP AI PREDICTION 🔥</span>
 </div>
 
-<!-- SLIDER -->
+<!-- BANNER (FULL FIX NO CROP) -->
 <div class="slider">
-  <div class="slides" id="slides">
-    <img src="http://plcl.me/images/X2Zgf.jpg">
-    <img src="http://plcl.me/images/2HuRq.jpg">
-  </div>
-
-  <button class="btn prev" onclick="move(-1)">❮</button>
-  <button class="btn next" onclick="move(1)">❯</button>
+  <img src="http://plcl.me/images/X2Zgf.jpg">
 </div>
 
-<!-- FLAGS (FIX AREA) -->
+<div class="slider">
+  <img src="http://plcl.me/images/2HuRq.jpg">
+</div>
+
+<!-- FLAGS + MATCH -->
 <div class="flags">
   <img src="https://flagcdn.com/af.svg">
   <img src="https://flagcdn.com/ca.svg">
 </div>
 
-<!-- CONTENT -->
+<!-- LAYOUT -->
 <div class="container">
 
-  <!-- LEFT SIDEBAR 4 ITEM -->
+  <!-- LEFT 4 MENU -->
   <div class="side">
 
-    <div class="item">
+    <div class="item" onclick="location.href='https://access.bit2air.com/telegramofficialairbet88'">
       <img src="http://plcl.me/images/fb3V3.png">
-      <a href="https://access.bit2air.com/telegramofficialairbet88">TELEGRAM</a>
+      <a>TELEGRAM</a>
     </div>
 
-    <div class="item">
+    <div class="item" onclick="location.href='https://access.bit2air.com/airbet88sensasional'">
       <img src="http://plcl.me/images/fb3V3.png">
-      <a href="https://access.bit2air.com/airbet88sensasional">LOGIN</a>
+      <a>LOGIN</a>
     </div>
 
-    <div class="item">
+    <div class="item" onclick="location.href='https://access.bit2air.com/airbet88sensasional'">
       <img src="http://plcl.me/images/fb3V3.png">
-      <a href="https://access.bit2air.com/airbet88sensasional">REGISTER</a>
+      <a>REGISTER</a>
     </div>
 
-    <div class="item">
+    <div class="item" onclick="location.href='https://access.bit2air.com/airbet88sensasional'">
       <img src="http://plcl.me/images/fb3V3.png">
-      <a href="https://access.bit2air.com/airbet88sensasional">PROMO</a>
+      <a>PROMO</a>
     </div>
 
   </div>
@@ -243,55 +203,42 @@
     </div>
 
     <div class="box">
-      <h2>ANALISA PERTANDINGAN</h2>
+      <h2>ANALISA AI</h2>
       <p>
-        AI membaca dominasi serangan Afrika Selatan lebih tinggi 62%.
-        Kanada unggul di counter attack namun lemah di defense area.
-        Prediksi akhir tetap 2:1 berdasarkan momentum pertandingan.
+        AI membaca dominasi Afrika Selatan lebih stabil di midfield.
+        Kanada lebih kuat counter attack tapi finishing rendah.
+        Prediksi tetap 2:1 berdasarkan pressure map.
       </p>
     </div>
 
   </div>
 
-  <!-- RIGHT SIDEBAR 4 ITEM -->
+  <!-- RIGHT 4 MENU -->
   <div class="side">
 
-    <div class="item">
+    <div class="item" onclick="location.href='https://access.bit2air.com/livechatairbet88'">
       <img src="http://plcl.me/images/fb3V3.png">
-      <a href="https://access.bit2air.com/livechatairbet88">LIVE CHAT</a>
+      <a>LIVE CHAT</a>
     </div>
 
-    <div class="item">
+    <div class="item" onclick="location.href='https://access.bit2air.com/airbet88sensasional'">
       <img src="http://plcl.me/images/fb3V3.png">
-      <a href="https://access.bit2air.com/airbet88sensasional">DATA MATCH</a>
+      <a>DATA MATCH</a>
     </div>
 
-    <div class="item">
+    <div class="item" onclick="location.href='https://access.bit2air.com/airbet88sensasional'">
       <img src="http://plcl.me/images/fb3V3.png">
-      <a href="https://access.bit2air.com/airbet88sensasional">STATISTIK</a>
+      <a>STATISTIK</a>
     </div>
 
-    <div class="item">
+    <div class="item" onclick="location.href='https://access.bit2air.com/airbet88sensasional'">
       <img src="http://plcl.me/images/fb3V3.png">
-      <a href="https://access.bit2air.com/airbet88sensasional">ODDS AI</a>
+      <a>ODDS AI</a>
     </div>
 
   </div>
 
 </div>
-
-<script>
-let i = 0;
-const slides = document.getElementById("slides");
-const total = slides.children.length;
-
-function move(dir){
-  i += dir;
-  if(i < 0) i = total - 1;
-  if(i >= total) i = 0;
-  slides.style.transform = "translateX(" + (-i * 100) + "%)";
-}
-</script>
 
 </body>
 </html>
